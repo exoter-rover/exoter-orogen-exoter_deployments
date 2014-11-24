@@ -1,0 +1,50 @@
+<package>
+  <description brief="ExoTer deployments">
+  ExoTer rover default deployment set
+  </description>
+  <author>Javier Hidalgo Carrio/javier.hidalgo-carrio@dfki.de, javier.hidalgo.carrio@esa.int</author>
+  <license>GPL v2 or later</license>
+  <url>http://</url>
+  <logo>http://</logo>
+  <depend package="base/cmake" />
+
+  <!--
+   To add any dependencies use the depend tag
+  <depend package="dummy-dependency-0" />
+	...
+  <depend package="dummy-dependency-n-1" />
+  <depend package="dummy-dependency-n" />
+  -->
+
+  <!-- Exoter Drivers -->
+  <depend package="drivers/orogen/transformer" />
+  <depend package="drivers/orogen/imu_stim300" />
+  <depend package="drivers/orogen/vicon" />
+  <depend package="drivers/orogen/gnss_trimble" />
+  <depend package="drivers/orogen/camera_bb2" />
+  <depend package="drivers/orogen/tofcamera_mesasr" />
+  <depend package="drivers/orogen/platform_driver" />
+
+  <!-- Exoter Control -->
+  <depend package="control/orogen/joint_dispatcher" />
+  <depend package="exoter/orogen/locomotion_control" />
+  <depend package="exoter/orogen/ptu_control" />
+
+  <!-- Wheel Walking Control -->
+  <depend package="exoter/orogen/wheelwalking_control" />
+
+  <!-- Exoter Perception -->
+  <depend package="image_processing/orogen/viso2" />
+  <depend package="image_processing/orogen/icp" />
+  <depend package="image_processing/orogen/projection" />
+
+  <!-- Exoter slam -->
+  <depend package="exoter/orogen/exoter_odometry" />
+  <depend package="exoter/orogen/localization_frontend" />
+  <depend package="slam/orogen/cloning_localization" />
+  <depend package="slam/orogen/pituki" />
+
+  <!-- Compilation flags -->
+  <tags>stable</tags>
+
+</package>

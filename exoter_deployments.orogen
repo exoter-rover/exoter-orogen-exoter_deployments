@@ -1,0 +1,110 @@
+name "exoter_deployments"
+
+
+# In order to avoid nameclashes, in case a module installs a deployment directly
+# using a prefix here (this prefix is for the deployment, i.e the executables, only
+# After installation you find them in <main-dev-folder>/install/bin/<SPACEBOT_PREFIX>...
+
+# Exoter Drivers
+using_task_library 'transformer'
+using_task_library 'imu_stim300'
+using_task_library 'vicon'
+using_task_library 'gnss_trimble'
+using_task_library 'camera_bb2'
+using_task_library 'camera_firewire'
+using_task_library 'tofcamera_mesasr'
+using_task_library 'platform_driver'
+
+# Exoter Control
+using_task_library 'joint_dispatcher'
+using_task_library 'locomotion_control'
+using_task_library 'ptu_control'
+
+
+# Exoter Wheel Walking
+using_task_library 'wheelwalking_control'
+
+#Exoter Perception
+using_task_library 'viso2'
+using_task_library 'icp'
+using_task_library 'projection'
+using_task_library 'localization_frontend'
+
+#Exoter Odometry
+using_task_library 'exoter_odometry'
+
+#Exoter Slam
+using_task_library 'localization'
+using_task_library 'pituki'
+
+# Control tasks
+deployment 'exoter_control' do
+
+    task("platform_driver", "platform_driver::Task").periodic(0.08)
+    task("locomotion_control", "locomotion_control::Task")
+    task("ptu_control", "ptu_control::Task")
+    task("read_joint_dispatcher", "joint_dispatcher::Task")
+    task("command_joint_dispatcher", "joint_dispatcher::Task")
+    task("wheel_walking_control", "wheelwalking_control::Task")
+
+    add_default_logger
+end
+
+# Proprioceptive sensing tasks
+deployment 'exoter_proprioceptive' do
+
+    task("imu_stim300", "imu_stim300::Task")
+
+    add_default_logger
+end
+
+# Perception processing tasks
+deployment "exoter_perception" do
+
+    task("camera_firewire", "camera_firewire::CameraTask")
+    task("camera_bb2", "camera_bb2::Task")
+    task("camera_tof", "tofcamera_mesasr::Task").periodic(0.5)
+    task("colorize_pointcloud", "projection::ColorizePointcloud")
+    task("localization_frontend", "localization_frontend::Task")
+
+    add_default_logger
+end
+
+# Exoter Odometry
+deployment "exoter_odometry" do
+
+    task("exoter_odometry", "exoter_odometry::Task")
+
+    add_default_logger
+end
+
+
+# Exteroceptive Odometry (delta displacements)
+deployment "exoter_exteroceptive" do
+
+    task("visual_odometry", "viso2::StereoOdometer")
+    task("generalized_icp", "icp::GIcp")
+
+    add_default_logger
+end
+
+# Simultaneous Localization (and Mapping)
+deployment "exoter_slam" do
+
+    task("localization_backend", "localization::Task")
+    task("localization_dispatcher", "localization::Dispatcher")
+    task("pituki", "pituki::Task")
+
+    add_default_logger
+end
+
+# Ground Truth
+deployment "exoter_groundtruth" do
+
+    task("vicon", "vicon::Task").periodic(0.01)
+    task("gnss_trimble", "gnss_trimble::Task").periodic(0.1)
+
+    add_default_logger
+end
+
+
