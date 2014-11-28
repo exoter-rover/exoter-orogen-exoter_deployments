@@ -27,11 +27,11 @@
 
   <!-- Exoter Control -->
   <depend package="control/orogen/joint_dispatcher" />
-  <depend package="exoter/orogen/locomotion_control" />
-  <depend package="exoter/orogen/ptu_control" />
+  <depend package="control/orogen/locomotion_control" />
+  <depend package="control/orogen/ptu_control" />
 
   <!-- Wheel Walking Control -->
-  <depend package="exoter/orogen/wheelwalking_control" />
+  <depend package="control/orogen/wheelwalking_control" />
 
   <!-- Exoter Perception -->
   <depend package="image_processing/orogen/viso2" />
@@ -41,7 +41,7 @@
   <!-- Exoter slam -->
   <depend package="exoter/orogen/exoter_odometry" />
   <depend package="exoter/orogen/localization_frontend" />
-  <depend package="slam/orogen/cloning_localization" />
+  <depend package="slam/orogen/cloning_localization" optional="1" />
   <depend package="slam/orogen/pituki" />
 
   <!-- Compilation flags -->
