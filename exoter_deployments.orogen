@@ -34,7 +34,6 @@ using_task_library 'localization_frontend'
 using_task_library 'exoter_odometry'
 
 #Exoter Slam
-using_task_library 'localization'
 using_task_library 'pituki'
 
 # Control tasks
@@ -91,8 +90,6 @@ end
 # Simultaneous Localization (and Mapping)
 deployment "exoter_slam" do
 
-    task("localization_backend", "localization::Task")
-    task("localization_dispatcher", "localization::Dispatcher")
     task("pituki", "pituki::Task")
 
     add_default_logger

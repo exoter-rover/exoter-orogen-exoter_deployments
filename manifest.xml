@@ -41,7 +41,6 @@
   <!-- Exoter slam -->
   <depend package="exoter/orogen/exoter_odometry" />
   <depend package="exoter/orogen/localization_frontend" />
-  <depend package="slam/orogen/cloning_localization" optional="1" />
   <depend package="slam/orogen/pituki" />
 
   <!-- Compilation flags -->
