@@ -10,6 +10,7 @@ using_task_library 'transformer'
 using_task_library 'imu_stim300'
 using_task_library 'vicon'
 using_task_library 'gnss_trimble'
+using_task_library 'ar_tracking'
 using_task_library 'camera_bb2'
 using_task_library 'camera_firewire'
 using_task_library 'tofcamera_mesasr'
@@ -104,6 +105,7 @@ deployment "exoter_groundtruth" do
 
     task("vicon", "vicon::Task").periodic(0.01)
     task("gnss_trimble", "gnss_trimble::Task").periodic(0.1)
+    task("ar_tracking", "ar_tracking::Task").periodic(0.1)
 
     add_default_logger
 end
