@@ -43,6 +43,7 @@
   <depend package="exoter/orogen/localization_frontend" />
   <depend package="slam/orogen/pituki" />
   <depend package="slam/orogen/threed_odometry" />
+  <depend package="slam/orogen/gp_odometry" />
 
   <!-- Compilation flags -->
   <tags>stable</tags>
