@@ -33,10 +33,11 @@ using_task_library 'localization_frontend'
 
 # General 3D Oodmetry
 using_task_library 'threed_odometry'
-#using_task_library 'gp_odometry'
+using_task_library 'gp_odometry'
 
 #Exoter Slam
 using_task_library 'pituki'
+using_task_library 'localization'
 
 # Control tasks
 deployment 'exoter_control' do
@@ -75,7 +76,7 @@ end
 deployment "exoter_odometry" do
 
     task("exoter_odometry", "threed_odometry::Task")
-    #task("gp_odometry", "gp_odometry::Task")
+    task("gp_odometry", "gp_odometry::Task")
 
     add_default_logger
 end
