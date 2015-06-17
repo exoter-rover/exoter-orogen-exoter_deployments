@@ -31,9 +31,6 @@ using_task_library 'icp'
 using_task_library 'projection'
 using_task_library 'localization_frontend'
 
-#Exoter Odometry
-using_task_library 'exoter_odometry'
-
 # General 3D Oodmetry
 using_task_library 'threed_odometry'
 #using_task_library 'gp_odometry'
@@ -77,7 +74,6 @@ end
 # Exoter Odometry
 deployment "exoter_odometry" do
 
-    #task("exoter_odometry", "exoter_odometry::Task")
     task("exoter_odometry", "threed_odometry::Task")
     #task("gp_odometry", "gp_odometry::Task")
 

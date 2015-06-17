@@ -38,7 +38,6 @@
   <depend package="image_processing/orogen/projection" />
 
   <!-- Exoter slam -->
-  <!-- <depend package="exoter/orogen/exoter_odometry" /> -->
   <depend package="exoter/orogen/localization_frontend" />
   <depend package="slam/orogen/pituki" />
   <depend package="slam/orogen/icp" />
