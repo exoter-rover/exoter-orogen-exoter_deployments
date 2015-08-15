@@ -41,7 +41,7 @@
   <depend package="perception/orogen/projection" />
   <depend package="slam/orogen/threed_odometry" />
   <depend package="slam/orogen/gp_odometry" />
-  <depend package="slam/orogen/localization" />
+  <!--  <depend package="slam/orogen/localization" /> -->
 
   <!-- Exoter slam -->
   <depend package="slam/orogen/pituki" />
