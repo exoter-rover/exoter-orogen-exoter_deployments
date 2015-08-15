@@ -16,16 +16,11 @@
   <depend package="dummy-dependency-n" />
   -->
 
-  <!-- Exoter Drivers -->
+  <!-- Exoter Generic -->
   <depend package="drivers/orogen/transformer" />
-  <depend package="drivers/orogen/imu_stim300" />
-  <depend package="drivers/orogen/vicon" />
-  <depend package="drivers/orogen/gnss_trimble" />
-  <depend package="drivers/orogen/camera_bb2" />
-  <depend package="drivers/orogen/tofcamera_mesasr" />
-  <depend package="drivers/orogen/platform_driver" />
 
   <!-- Exoter Control -->
+  <depend package="drivers/orogen/platform_driver" />
   <depend package="control/orogen/joint_dispatcher" />
   <depend package="control/orogen/locomotion_control" />
   <depend package="control/orogen/ptu_control" />
@@ -33,17 +28,28 @@
   <!-- Wheel Walking Control -->
   <depend package="control/orogen/wheelwalking_control" />
 
-  <!-- Exoter Perception -->
-  <depend package="image_processing/orogen/viso2" />
-  <depend package="image_processing/orogen/projection" />
+  <!-- Exoter Proprioceptive -->
+  <depend package="drivers/orogen/imu_stim300" />
 
-  <!-- Exoter slam -->
+  <!-- Exoter Exteroceptive -->
+  <depend package="drivers/orogen/camera_bb2" />
+  <depend package="drivers/orogen/tofcamera_mesasr" />
+
+  <!-- Exoter Localization -->
   <depend package="exoter/orogen/localization_frontend" />
-  <depend package="slam/orogen/pituki" />
-  <depend package="slam/orogen/icp" />
+  <depend package="perception/orogen/viso2" />
+  <depend package="perception/orogen/projection" />
   <depend package="slam/orogen/threed_odometry" />
   <depend package="slam/orogen/gp_odometry" />
   <depend package="slam/orogen/localization" />
+
+  <!-- Exoter slam -->
+  <depend package="slam/orogen/pituki" />
+  <depend package="slam/orogen/icp" />
+
+  <!-- Exoter Ground Truth -->
+  <depend package="drivers/orogen/vicon" />
+  <depend package="drivers/orogen/gnss_trimble" />
 
   <!-- Compilation flags -->
   <tags>stable</tags>
