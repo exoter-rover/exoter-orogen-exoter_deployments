@@ -5,39 +5,43 @@ name "exoter_deployments"
 # using a prefix here (this prefix is for the deployment, i.e the executables, only
 # After installation you find them in <main-dev-folder>/install/bin/<SPACEBOT_PREFIX>...
 
-# Exoter Drivers
+# Exoter Generic
 using_task_library 'transformer'
-using_task_library 'imu_stim300'
-using_task_library 'vicon'
-using_task_library 'gnss_trimble'
-using_task_library 'ar_tracking'
-using_task_library 'camera_bb2'
-using_task_library 'camera_firewire'
-using_task_library 'tofcamera_mesasr'
-using_task_library 'platform_driver'
 
 # Exoter Control
 using_task_library 'joint_dispatcher'
 using_task_library 'locomotion_control'
 using_task_library 'ptu_control'
-
+using_task_library 'platform_driver'
 
 # Exoter Wheel Walking
 using_task_library 'wheelwalking_control'
 
-#Exoter Perception
-using_task_library 'viso2'
-using_task_library 'icp'
-using_task_library 'projection'
-using_task_library 'localization_frontend'
+#Exoter Proprioceptive
+using_task_library 'imu_stim300'
 
-# General 3D Oodmetry
+#Exoter Exteroceptive
+using_task_library 'camera_bb2'
+using_task_library 'camera_firewire'
+using_task_library 'tofcamera_mesasr'
+
+#Exoter Localization
+using_task_library 'localization_frontend'
 using_task_library 'threed_odometry'
 using_task_library 'gp_odometry'
+using_task_library 'localization'
+using_task_library 'viso2'
+using_task_library 'icp'
 
 #Exoter Slam
+using_task_library 'projection'
 using_task_library 'pituki'
-using_task_library 'localization'
+
+#Exoter Ground Truth
+using_task_library 'vicon'
+using_task_library 'ar_tracking'
+using_task_library 'gnss_trimble'
+
 
 # Control related tasks
 deployment 'exoter_control' do
