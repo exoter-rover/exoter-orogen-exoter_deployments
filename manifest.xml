@@ -42,7 +42,8 @@
   <depend package="slam/orogen/pituki" />
   <depend package="slam/orogen/icp" />
   <depend package="slam/orogen/threed_odometry" />
-  <!-- <depend package="slam/orogen/gp_odometry" /> -->
+  <depend package="slam/orogen/gp_odometry" />
+  <depend package="slam/orogen/localization" />
 
   <!-- Compilation flags -->
   <tags>stable</tags>

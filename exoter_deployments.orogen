@@ -33,12 +33,13 @@ using_task_library 'localization_frontend'
 
 # General 3D Oodmetry
 using_task_library 'threed_odometry'
-#using_task_library 'gp_odometry'
+using_task_library 'gp_odometry'
 
 #Exoter Slam
 using_task_library 'pituki'
+using_task_library 'localization'
 
-# Control tasks
+# Control related tasks
 deployment 'exoter_control' do
 
     task("platform_driver", "platform_driver::Task").periodic(0.08)
@@ -59,40 +60,33 @@ deployment 'exoter_proprioceptive' do
     add_default_logger
 end
 
-# Perception processing tasks
-deployment "exoter_perception" do
+# Perception sensing tasks
+deployment "exoter_exteroceptive" do
 
     task("camera_firewire", "camera_firewire::CameraTask")
     task("camera_bb2", "camera_bb2::Task")
     task("camera_tof", "tofcamera_mesasr::Task").periodic(0.5)
-    task("colorize_pointcloud", "projection::ColorizePointcloud")
+
+    add_default_logger
+end
+
+# Localization related tasks
+deployment "exoter_localization" do
+
     task("localization_frontend", "localization_frontend::Task")
-
-    add_default_logger
-end
-
-# Exoter Odometry
-deployment "exoter_odometry" do
-
     task("exoter_odometry", "threed_odometry::Task")
-    #task("gp_odometry", "gp_odometry::Task")
-
-    add_default_logger
-end
-
-
-# Exteroceptive Odometry (delta displacements)
-deployment "exoter_exteroceptive" do
-
+    task("gp_odometry", "gp_odometry::Task")
+    task("msc_localization", "localization::Task")
     task("visual_odometry", "viso2::StereoOdometer")
     task("generalized_icp", "icp::GIcp")
 
     add_default_logger
 end
 
-# Simultaneous Localization (and Mapping)
+# Simultaneous (Localization) and Mapping related tasks
 deployment "exoter_slam" do
 
+    task("colorize_pointcloud", "projection::ColorizePointcloud")
     task("pituki", "pituki::Task")
 
     add_default_logger
