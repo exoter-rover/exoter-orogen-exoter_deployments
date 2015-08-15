@@ -70,23 +70,15 @@ deployment "exoter_exteroceptive" do
     add_default_logger
 end
 
-# Exteroceptive processing tasks
-deployment "exoter_perception" do
-
-    task("localization_frontend", "localization_frontend::Task")
-    task("colorize_pointcloud", "projection::ColorizePointcloud")
-    task("visual_odometry", "viso2::StereoOdometer")
-    task("generalized_icp", "icp::GIcp")
-
-    add_default_logger
-end
-
 # Localization related tasks
 deployment "exoter_localization" do
 
+    task("localization_frontend", "localization_frontend::Task")
     task("exoter_odometry", "threed_odometry::Task")
     task("gp_odometry", "gp_odometry::Task")
     task("msc_localization", "localization::Task")
+    task("visual_odometry", "viso2::StereoOdometer")
+    task("generalized_icp", "icp::GIcp")
 
     add_default_logger
 end
@@ -94,6 +86,7 @@ end
 # Simultaneous (Localization) and Mapping related tasks
 deployment "exoter_slam" do
 
+    task("colorize_pointcloud", "projection::ColorizePointcloud")
     task("pituki", "pituki::Task")
 
     add_default_logger
