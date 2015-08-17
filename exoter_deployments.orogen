@@ -28,8 +28,8 @@ using_task_library 'tofcamera_mesasr'
 #Exoter Localization
 using_task_library 'localization_frontend'
 using_task_library 'threed_odometry'
-#using_task_library 'gp_odometry'
-#using_task_library 'localization'
+using_task_library 'gp_odometry'
+using_task_library 'localization'
 using_task_library 'viso2'
 using_task_library 'icp'
 
@@ -79,8 +79,8 @@ deployment "exoter_localization" do
 
     task("localization_frontend", "localization_frontend::Task")
     task("exoter_odometry", "threed_odometry::Task")
-# task("gp_odometry", "gp_odometry::Task")
-#    task("msc_localization", "localization::Task")
+    task("gp_odometry", "gp_odometry::Task")
+    task("msc_localization", "localization::Task")
     task("visual_odometry", "viso2::StereoOdometer")
     task("generalized_icp", "icp::GIcp")
 
