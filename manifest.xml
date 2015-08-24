@@ -50,6 +50,9 @@
   <!-- Exoter Ground Truth -->
   <depend package="drivers/orogen/vicon" />
   <depend package="drivers/orogen/gnss_trimble" />
+  
+  <!-- Exoter Telemetry Telecommand -->
+  <depend package="drivers/orogen/telemetry_telecommand" />
 
   <!-- Compilation flags -->
   <tags>stable</tags>
