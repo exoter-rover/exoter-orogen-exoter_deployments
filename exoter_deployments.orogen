@@ -42,6 +42,8 @@ using_task_library 'vicon'
 using_task_library 'ar_tracking'
 using_task_library 'gnss_trimble'
 
+#Exoter TM/TC Handling
+using_task_library 'telemetry_telecommand'
 
 # Control related tasks
 deployment 'exoter_control' do
@@ -105,5 +107,15 @@ deployment "exoter_groundtruth" do
 
     add_default_logger
 end
+
+# TM/TC Handling
+deployment "exoter_tmtchandling" do
+
+    task("telemetry_telecommand", "telemetry_telecommand::Task").periodic(0.5)
+    
+    add_default_logger
+end
+
+
 
 
