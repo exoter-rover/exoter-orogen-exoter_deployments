@@ -41,8 +41,8 @@
   <depend package="perception/orogen/projection" />
   <depend package="slam/orogen/threed_odometry" />
   <depend package="slam/orogen/gp_odometry" />
-  <depend package="slam/orogen/localization" />
   <depend package="perception/orogen/visual_stereo" />
+  <!-- <depend package="slam/orogen/localization" /> -->
 
   <!-- Exoter slam -->
   <depend package="slam/orogen/pituki" />
@@ -53,6 +53,6 @@
   <depend package="drivers/orogen/gnss_trimble" />
 
   <!-- Compilation flags -->
-  <tags>stable</tags>
+  <!-- <tags>stable</tags> -->
 
 </package>
