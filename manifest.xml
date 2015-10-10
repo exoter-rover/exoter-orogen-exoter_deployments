@@ -47,6 +47,7 @@
   <!-- Exoter slam -->
   <depend package="slam/orogen/pituki" />
   <depend package="slam/orogen/icp" />
+  <depend package="slam/orogen/sam" />
 
   <!-- Exoter Ground Truth -->
   <depend package="drivers/orogen/vicon" />

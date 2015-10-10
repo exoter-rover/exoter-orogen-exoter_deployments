@@ -37,6 +37,7 @@ using_task_library 'visual_stereo'
 #Exoter Slam
 using_task_library 'projection'
 using_task_library 'pituki'
+using_task_library 'sam'
 
 #Exoter Ground Truth
 using_task_library 'vicon'
@@ -94,6 +95,7 @@ deployment "exoter_slam" do
 
     task("colorize_pointcloud", "projection::ColorizePointcloud")
     task("pituki", "pituki::Task")
+    task("sam", "sam::Task")
 
     add_default_logger
 end
