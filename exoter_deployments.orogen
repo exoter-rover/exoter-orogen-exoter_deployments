@@ -24,6 +24,8 @@ using_task_library 'imu_stim300'
 using_task_library 'camera_bb2'
 using_task_library 'camera_firewire'
 using_task_library 'tofcamera_mesasr'
+using_task_library 'stereo'
+using_task_library 'image_preprocessing'
 
 #Exoter Localization
 using_task_library 'localization_frontend'
@@ -69,9 +71,15 @@ end
 # Perception sensing tasks
 deployment "exoter_exteroceptive" do
 
-    task("camera_firewire", "camera_firewire::CameraTask")
-    task("camera_bb2", "camera_bb2::Task")
+    task("camera_firewire_pan_cam", "camera_firewire::CameraTask")
+    task("camera_bb2_pan_cam", "camera_bb2::Task")
+    task("camera_firewire_loc_cam", "camera_firewire::CameraTask")
+    task("camera_bb2_loc_cam", "camera_bb2::Task")
     task("camera_tof", "tofcamera_mesasr::Task").periodic(0.5)
+    task("stereo_pan_cam", "stereo::Task")
+    task("stereo_loc_cam", "stereo::Task")
+    task("pointcloud_pan_cam", "image_preprocessing::DepthImage2Pointcloud")
+    task("pointcloud_loc_cam", "image_preprocessing::DepthImage2Pointcloud")
 
     add_default_logger
 end
