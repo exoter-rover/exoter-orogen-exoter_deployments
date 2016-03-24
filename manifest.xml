@@ -38,7 +38,6 @@
   <!-- Exoter Localization -->
   <depend package="exoter/orogen/localization_frontend" />
   <depend package="perception/orogen/viso2" />
-  <depend package="perception/orogen/projection" />
   <depend package="slam/orogen/threed_odometry" />
   <!--  <depend package="slam/orogen/gp_odometry" /> -->
   <!--  <depend package="slam/orogen/localization" /> -->
@@ -47,10 +46,15 @@
   <depend package="slam/orogen/pituki" />
   <depend package="slam/orogen/icp" />
 
+  <!-- Exoter perception -->
+  <depend package="perception/orogen/projection" />
+  <depend package="perception/orogen/stereo" />
+  <depend package="perception/orogen/image_preprocessing" />
+
   <!-- Exoter Ground Truth -->
   <depend package="drivers/orogen/vicon" />
   <depend package="drivers/orogen/gnss_trimble" />
-  
+
   <!-- Exoter Telemetry Telecommand -->
   <depend package="drivers/orogen/telemetry_telecommand" />
 
