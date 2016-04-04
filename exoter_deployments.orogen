@@ -72,6 +72,8 @@ end
 # Perception sensing tasks
 deployment "exoter_exteroceptive" do
 
+    task("camera_firewire", "camera_firewire::CameraTask")
+    task("camera_bb2", "camera_bb2::Task")
     task("camera_firewire_pan_cam", "camera_firewire::CameraTask")
     task("camera_bb2_pan_cam", "camera_bb2::Task")
     task("camera_firewire_loc_cam", "camera_firewire::CameraTask")
