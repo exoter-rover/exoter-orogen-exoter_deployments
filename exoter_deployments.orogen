@@ -77,6 +77,8 @@ deployment "exoter_exteroceptive" do
 
     task("camera_firewire_pan_cam_left", "camera_firewire::CameraTask")
     task("camera_firewire_pan_cam_right", "camera_firewire::CameraTask")
+    task("camera_bb2_pan_cam_left", "camera_bb2::Task")
+    task("camera_bb2_pan_cam_right", "camera_bb2::Task")
     
     task("camera_firewire_loc_cam_front", "camera_firewire::CameraTask")
     task("camera_bb2_loc_cam_front", "camera_bb2::Task")
