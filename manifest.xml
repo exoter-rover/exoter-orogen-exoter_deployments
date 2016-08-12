@@ -39,15 +39,16 @@
   <depend package="exoter/orogen/localization_frontend" />
   <depend package="perception/orogen/viso2" />
   <depend package="perception/orogen/projection" />
+  <depend package="perception/orogen/visual_stereo" />
   <depend package="slam/orogen/threed_odometry" />
   <depend package="slam/orogen/gp_odometry" />
-  <depend package="perception/orogen/visual_stereo" />
   <!-- <depend package="slam/orogen/localization" /> -->
 
   <!-- Exoter slam -->
   <depend package="slam/orogen/pituki" />
   <depend package="slam/orogen/icp" />
   <depend package="slam/orogen/sam" />
+  <depend package="slam/orogen/vsd_slam" />
 
   <!-- Exoter Ground Truth -->
   <depend package="drivers/orogen/vicon" />

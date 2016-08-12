@@ -38,12 +38,12 @@ using_task_library 'visual_stereo'
 using_task_library 'projection'
 using_task_library 'pituki'
 using_task_library 'sam'
+using_task_library 'vsd_slam'
 
 #Exoter Ground Truth
 using_task_library 'vicon'
 using_task_library 'ar_tracking'
 using_task_library 'gnss_trimble'
-
 
 # Control related tasks
 deployment 'exoter_control' do
@@ -96,6 +96,7 @@ deployment "exoter_slam" do
     task("colorize_pointcloud", "projection::ColorizePointcloud")
     task("pituki", "pituki::Task")
     task("sam", "sam::Task")
+    task("vsd_slam", "vsd_slam::Task")
 
     add_default_logger
 end
