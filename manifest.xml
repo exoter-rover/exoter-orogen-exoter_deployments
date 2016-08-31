@@ -33,8 +33,11 @@
   <depend package="drivers/orogen/imu_stim300" />
 
   <!-- Exoter Exteroceptive -->
+  <depend package="drivers/orogen/camera_firewire" />
   <depend package="drivers/orogen/camera_bb2" />
   <depend package="drivers/orogen/tofcamera_mesasr" />
+  <depend package="drivers/orogen/velodyne_lidar" />
+
 
   <!-- Exoter Localization -->
   <depend package="exoter/orogen/localization_frontend" />
@@ -55,11 +58,13 @@
   <!-- Exoter Ground Truth -->
   <depend package="drivers/orogen/vicon" />
   <depend package="drivers/orogen/gnss_trimble" />
+  <depend package="drivers/orogen/ar_tracking" />
+
 
   <!-- Exoter Telemetry Telecommand -->
   <depend package="drivers/orogen/telemetry_telecommand" />
 
   <!-- Compilation flags -->
-  <tags>stable</tags>
+  <!--  <tags>stable</tags> -->
 
 </package>
