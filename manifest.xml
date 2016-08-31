@@ -24,6 +24,7 @@
   <depend package="control/orogen/joint_dispatcher" />
   <depend package="control/orogen/locomotion_control" />
   <depend package="control/orogen/ptu_control" />
+  <depend package="control/orogen/trajectory_follower" />
 
   <!-- Wheel Walking Control -->
   <depend package="control/orogen/wheelwalking_control" />

@@ -13,6 +13,7 @@ using_task_library 'joint_dispatcher'
 using_task_library 'locomotion_control'
 using_task_library 'ptu_control'
 using_task_library 'platform_driver'
+using_task_library 'trajectory_follower'
 
 # Exoter Wheel Walking
 using_task_library 'wheelwalking_control'
@@ -57,6 +58,7 @@ deployment 'exoter_control' do
     task("read_joint_dispatcher", "joint_dispatcher::Task")
     task("command_joint_dispatcher", "joint_dispatcher::Task")
     task("wheel_walking_control", "wheelwalking_control::Task")
+    task("trajectory_control", "trajectory_follower::Task")
 
     add_default_logger
 end
