@@ -65,6 +65,6 @@
   <depend package="drivers/orogen/telemetry_telecommand" />
 
   <!-- Compilation flags -->
-  <!--  <tags>stable</tags> -->
+  <tags>stable</tags>
 
 </package>
