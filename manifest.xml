@@ -21,13 +21,17 @@
 
   <!-- Exoter Control -->
   <depend package="drivers/orogen/platform_driver" />
+  <depend package="drivers/orogen/controldev" />
   <depend package="control/orogen/joint_dispatcher" />
   <depend package="control/orogen/locomotion_control" />
   <depend package="control/orogen/ptu_control" />
-  <depend package="control/orogen/trajectory_follower" />
+  <depend package="control/orogen/motion_translator" />
+  <depend package="control/orogen/waypoint_navigation" />
+  <depend package="control/orogen/command_arbiter" />
+  <depend package="control/orogen/simple_pose" />
 
   <!-- Wheel Walking Control -->
-  <depend package="control/orogen/wheelwalking_control" />
+  <!--  <depend package="control/orogen/wheelwalking_control" /> For compilation issues with base/logging -->
 
   <!-- Exoter Proprioceptive -->
   <depend package="drivers/orogen/imu_stim300" />
@@ -35,30 +39,37 @@
   <!-- Exoter Exteroceptive -->
   <depend package="drivers/orogen/camera_firewire" />
   <depend package="drivers/orogen/camera_bb2" />
+  <depend package="drivers/orogen/camera_bb3" />
+  <depend package="drivers/orogen/camera_trigger" />
   <depend package="drivers/orogen/tofcamera_mesasr" />
-  <depend package="drivers/orogen/velodyne_lidar" />
+  <!-- <depend package="drivers/orogen/velodyne_lidar" /> For compilation issues with base/logging -->
 
 
   <!-- Exoter Localization -->
   <depend package="exoter/orogen/localization_frontend" />
-  <depend package="perception/orogen/viso2" />
+  <!-- <depend package="perception/orogen/viso2" /> -->
   <depend package="slam/orogen/threed_odometry" />
   <!--  <depend package="slam/orogen/gp_odometry" /> -->
   <!--  <depend package="slam/orogen/localization" /> -->
 
   <!-- Exoter slam -->
-  <depend package="slam/orogen/pituki" />
-  <depend package="slam/orogen/icp" />
+  <!-- <depend package="slam/orogen/pituki" /> -->
+  <!-- <depend package="slam/orogen/icp" /> -->
+  <depend package="planning/orogen/motion_planning_libraries" />
+  <depend package="planning/orogen/traversability_explorer" />
+  <depend package="planning/orogen/trajectory_helpers" />
 
   <!-- Exoter perception -->
-  <depend package="perception/orogen/projection" />
+  <!-- <depend package="perception/orogen/projection" /> -->
   <depend package="perception/orogen/stereo" />
-  <depend package="perception/orogen/image_preprocessing" />
+  <depend package="perception/orogen/dem_generation" />
+  <!--  <depend package="perception/orogen/image_preprocessing" /> Temporarily removed -->
+
 
   <!-- Exoter Ground Truth -->
   <depend package="drivers/orogen/vicon" />
   <depend package="drivers/orogen/gnss_trimble" />
-  <depend package="drivers/orogen/ar_tracking" />
+  <!--  <depend package="drivers/orogen/ar_tracking" /> Temporarily removed -->
 
 
   <!-- Exoter Telemetry Telecommand -->

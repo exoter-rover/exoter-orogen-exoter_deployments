@@ -13,41 +13,55 @@ using_task_library 'joint_dispatcher'
 using_task_library 'locomotion_control'
 using_task_library 'ptu_control'
 using_task_library 'platform_driver'
-using_task_library 'trajectory_follower'
+using_task_library 'waypoint_navigation'
+using_task_library 'motion_translator'
+using_task_library 'controldev'
+using_task_library 'command_arbiter'
+using_task_library 'simple_pose'
 
 # Exoter Wheel Walking
-using_task_library 'wheelwalking_control'
+#using_task_library 'wheelwalking_control'
 
 #Exoter Proprioceptive
 using_task_library 'imu_stim300'
 
 #Exoter Exteroceptive
 using_task_library 'camera_bb2'
+using_task_library 'camera_bb3'
+using_task_library 'camera_trigger'
 using_task_library 'camera_firewire'
 using_task_library 'tofcamera_mesasr'
-using_task_library 'velodyne_lidar'
+#using_task_library 'velodyne_lidar'
 using_task_library 'stereo'
-using_task_library 'image_preprocessing'
+using_task_library 'dem_generation'
+#using_task_library 'image_preprocessing'
 
 #Exoter Localization
 using_task_library 'localization_frontend'
 using_task_library 'threed_odometry'
 #using_task_library 'gp_odometry'
 #using_task_library 'localization'
-using_task_library 'viso2'
-using_task_library 'icp'
+#using_task_library 'viso2'
+#using_task_library 'icp'
 
 #Exoter Slam
-using_task_library 'projection'
-using_task_library 'pituki'
+#using_task_library 'projection'
+#using_task_library 'pituki'
+using_task_library 'motion_planning_libraries'
+using_task_library 'traversability_explorer'
+using_task_library 'traversability_loader'
+using_task_library 'trajectory_helpers'
 
 #Exoter Ground Truth
 using_task_library 'vicon'
-using_task_library 'ar_tracking'
+#using_task_library 'ar_tracking'
 using_task_library 'gnss_trimble'
 
 #Exoter TM/TC Handling
 using_task_library 'telemetry_telecommand'
+
+#Exoter autonomy
+using_task_library 'cartographer'
 
 # Control related tasks
 deployment 'exoter_control' do
@@ -57,9 +71,13 @@ deployment 'exoter_control' do
     task("ptu_control", "ptu_control::Task")
     task("read_joint_dispatcher", "joint_dispatcher::Task")
     task("command_joint_dispatcher", "joint_dispatcher::Task")
-    task("wheel_walking_control", "wheelwalking_control::Task")
-    task("trajectory_control", "trajectory_follower::Task")
-
+#task("wheel_walking_control", "wheelwalking_control::Task")
+    task("waypoint_navigation", "waypoint_navigation::Task")
+    task("motion_translator", "motion_translator::Task")
+    task("joystick", "controldev::JoystickTask")
+    task("trajectoryGen", "waypoint_navigation::TrajectoryTest")
+    task("command_arbiter", "command_arbiter::Task")
+    task("pose_merge", "simple_pose::Task")
     add_default_logger
 end
 
@@ -73,62 +91,97 @@ end
 
 # Perception sensing tasks
 deployment "exoter_exteroceptive" do
-
-    task("camera_firewire", "camera_firewire::CameraTask")
-    task("camera_bb2", "camera_bb2::Task")
-
-    task("camera_firewire_pan_cam_left", "camera_firewire::CameraTask")
-    task("camera_firewire_pan_cam_right", "camera_firewire::CameraTask")
-    task("camera_bb2_pan_cam_left", "camera_bb2::Task")
-    task("camera_bb2_pan_cam_right", "camera_bb2::Task")
-    
-    task("camera_firewire_loc_cam_front", "camera_firewire::CameraTask")
-    task("camera_bb2_loc_cam_front", "camera_bb2::Task")
-    task("camera_firewire_loc_cam_rear", "camera_firewire::CameraTask")
-    task("camera_bb2_loc_cam_rear", "camera_bb2::Task")
-
+#
+    task("camera_firewire_front", "camera_firewire::CameraTask")
+    task("camera_bb2_front", "camera_bb2::Task")
+    task("camera_trigger_front", "camera_trigger::Task")
+    task("camera_firewire_back", "camera_firewire::CameraTask")
+    task("camera_bb2_back", "camera_bb2::Task")
+    task("camera_trigger_back", "camera_trigger::Task")
+    task("camera_firewire_mast", "camera_firewire::CameraTask")
+    task("camera_bb3", "camera_bb3::Task")
+    task("camera_trigger_mast", "camera_trigger::Task")
+#
+#    task("camera_firewire_pan_cam_left", "camera_firewire::CameraTask")
+#    task("camera_firewire_pan_cam_right", "camera_firewire::CameraTask")
+#    task("camera_bb2_pan_cam_left", "camera_bb2::Task")
+#    task("camera_bb2_pan_cam_right", "camera_bb2::Task")
+#    
+#    task("camera_firewire_loc_cam_front", "camera_firewire::CameraTask")
+#    task("camera_bb2_loc_cam_front", "camera_bb2::Task")
+#    task("camera_firewire_loc_cam_rear", "camera_firewire::CameraTask")
+#    task("camera_bb2_loc_cam_rear", "camera_bb2::Task")
+#
     task("camera_tof", "tofcamera_mesasr::Task")
-    task("velodyne_lidar", "velodyne_lidar::LaserScanner")
-
-    task("stereo_pan_cam", "stereo::Task")
-    task("stereo_loc_cam_front", "stereo::Task")
-    task("stereo_loc_cam_rear", "stereo::Task")
-    task("pointcloud_pan_cam", "image_preprocessing::DepthImage2Pointcloud")
-    task("pointcloud_loc_cam_front", "image_preprocessing::DepthImage2Pointcloud")
-    task("pointcloud_loc_cam_rear", "image_preprocessing::DepthImage2Pointcloud")
-
+#    task("velodyne_lidar", "velodyne_lidar::LaserScanner")
+#
+    task("stereo_mast", "stereo::Task")
+    task("stereo_front", "stereo::Task")
+    task("stereo_back", "stereo::Task")
+    task("dem_generation_mast", "dem_generation::Task")
+    task("dem_generation_front", "dem_generation::Task")
+    task("dem_generation_back", "dem_generation::Task")
+#    task("pointcloud_pan_cam", "image_preprocessing::DepthImage2Pointcloud")
+#    task("pointcloud_loc_cam_front", "image_preprocessing::DepthImage2Pointcloud")
+#    task("pointcloud_loc_cam_rear", "image_preprocessing::DepthImage2Pointcloud")
+#
     add_default_logger
+end
+
+# Perception sensing tasks
+deployment "exoter_mast_bb2" do
+#
+    task("camera_bb2_mast", "camera_bb2::Task")
+    task("camera_firewire_mast", "camera_firewire::CameraTask")
+    task("stereo_mast", "stereo::Task")
+    add_default_logger
+end
+
+# Autonomy related tasks
+deployment "exoter_autonomy" do
+   task("cartographer","cartographer::Task")
+   add_default_logger
 end
 
 # Localization related tasks
 deployment "exoter_localization" do
-
     task("localization_frontend", "localization_frontend::Task")
     task("exoter_odometry", "threed_odometry::Task")
-# task("gp_odometry", "gp_odometry::Task")
+#    task("gp_odometry", "gp_odometry::Task")
 #    task("msc_localization", "localization::Task")
-    task("visual_odometry", "viso2::StereoOdometer")
-    task("generalized_icp", "icp::GIcp")
-
+#    task("visual_odometry", "viso2::StereoOdometer")
+#    task("generalized_icp", "icp::GIcp")
     add_default_logger
 end
 
 # Simultaneous (Localization) and Mapping related tasks
 deployment "exoter_slam" do
 
-    task("colorize_pointcloud", "projection::ColorizePointcloud")
-    task("pituki", "pituki::Task")
-
+#    task("colorize_pointcloud", "projection::ColorizePointcloud")
+#    task("pituki", "pituki::Task")
+    task("path_planner", "motion_planning_libraries::Task")
+    task("traversability", "traversability_explorer::Task")
+    task("traversability_loader", "traversability_loader::Task")
+    task("goal_set", "trajectory_helpers::GoalGenerator")
+    task("trajectory_refiner", "trajectory_helpers::TrajectoryRefiner")
+    task("pose_est", "simple_pose::Task")
     add_default_logger
 end
 
 # Ground Truth
 deployment "exoter_groundtruth" do
 
-    task("vicon", "vicon::Task").periodic(0.01)
+    task("vicon", "vicon::Task").periodic(0.1)
     task("gnss_trimble", "gnss_trimble::Task").periodic(0.1)
-    task("ar_tracking", "ar_tracking::Task").periodic(0.1)
+#    task("ar_tracking", "ar_tracking::Task").periodic(0.1)
 
+    add_default_logger
+end
+
+deployment "exoter_unit_bb3" do
+    task("camera_firewire_bb3", "camera_firewire::CameraTask")
+    task("camera_bb3", "camera_bb3::Task")
+    task("stereo_bb3", "stereo::Task")
     add_default_logger
 end
 
