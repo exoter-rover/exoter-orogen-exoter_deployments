@@ -75,7 +75,7 @@ deployment 'exoter_control' do
     task("waypoint_navigation", "waypoint_navigation::Task")
     task("motion_translator", "motion_translator::Task")
     task("joystick", "controldev::JoystickTask")
-    task("trajectoryGen", "waypoint_navigation::TrajectoryTest")
+#    task("trajectoryGen", "waypoint_navigation::TrajectoryTest")
     task("command_arbiter", "command_arbiter::Task")
     task("pose_merge", "simple_pose::Task")
     add_default_logger
