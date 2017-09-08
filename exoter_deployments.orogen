@@ -19,8 +19,12 @@ using_task_library 'controldev'
 using_task_library 'command_arbiter'
 using_task_library 'simple_pose'
 
+# Exoter Switcher
+using_task_library 'locomotion_switcher'
+using_task_library 'slippage_estimator'
+
 # Exoter Wheel Walking
-#using_task_library 'wheelwalking_control'
+using_task_library 'wheelwalking_control'
 
 #Exoter Proprioceptive
 using_task_library 'imu_stim300'
@@ -48,6 +52,7 @@ using_task_library 'threed_odometry'
 #using_task_library 'projection'
 #using_task_library 'pituki'
 using_task_library 'motion_planning_libraries'
+using_task_library 'path_planning'
 using_task_library 'traversability_explorer'
 using_task_library 'traversability_loader'
 using_task_library 'trajectory_helpers'
@@ -56,6 +61,7 @@ using_task_library 'trajectory_helpers'
 using_task_library 'vicon'
 #using_task_library 'ar_tracking'
 using_task_library 'gnss_trimble'
+using_task_library 'gps_heading'
 
 #Exoter TM/TC Handling
 using_task_library 'telemetry_telecommand'
@@ -71,13 +77,15 @@ deployment 'exoter_control' do
     task("ptu_control", "ptu_control::Task")
     task("read_joint_dispatcher", "joint_dispatcher::Task")
     task("command_joint_dispatcher", "joint_dispatcher::Task")
-#task("wheel_walking_control", "wheelwalking_control::Task")
+    task("wheel_walking_control", "wheelwalking_control::Task")
     task("waypoint_navigation", "waypoint_navigation::Task")
     task("motion_translator", "motion_translator::Task")
     task("joystick", "controldev::JoystickTask")
 #    task("trajectoryGen", "waypoint_navigation::TrajectoryTest")
     task("command_arbiter", "command_arbiter::Task")
     task("pose_merge", "simple_pose::Task")
+    task("locomotion_switcher", "locomotion_switcher::Task")
+    task("slippage_estimator", "slippage_estimator::Task")
     add_default_logger
 end
 
@@ -160,6 +168,7 @@ deployment "exoter_slam" do
 #    task("colorize_pointcloud", "projection::ColorizePointcloud")
 #    task("pituki", "pituki::Task")
     task("path_planner", "motion_planning_libraries::Task")
+    task("ares_planner", "path_planning::Task")
     task("traversability", "traversability_explorer::Task")
     task("traversability_loader", "traversability_loader::Task")
     task("goal_set", "trajectory_helpers::GoalGenerator")
@@ -173,6 +182,7 @@ deployment "exoter_groundtruth" do
 
     task("vicon", "vicon::Task").periodic(0.1)
     task("gnss_trimble", "gnss_trimble::Task").periodic(0.1)
+    task("gps_heading", "gps_heading::Task").periodic(0.1)
 #    task("ar_tracking", "ar_tracking::Task").periodic(0.1)
 
     add_default_logger
